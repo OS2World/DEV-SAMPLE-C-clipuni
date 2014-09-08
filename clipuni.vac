@@ -1,0 +1,20 @@
+CC     = icc.exe
+LINK   = ilink.exe
+RC     = rc.exe
+CFLAGS = /Ss /Q
+LFLAGS = /NOL /PM:PM libuls.lib libconv.lib
+NAME   = clipuni
+
+
+$(NAME).exe : $(NAME).obj $(NAME).res ids.h
+                $(LINK) $(LFLAGS) $(NAME).obj /OUT:$@
+                $(RC) -n -x2 $(NAME).res $@
+
+$(NAME).res : $(NAME).rc ids.h $(NAME).ico
+                $(RC) -n -r $(NAME).rc $@
+
+clean       :
+              @if exist $(NAME).res del $(NAME).res
+              @if exist $(NAME).obj del $(NAME).obj
+              @if exist $(NAME).exe del $(NAME).exe
+

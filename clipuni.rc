@@ -1,0 +1,32 @@
+#include <os2.h>
+#include "ids.h"
+
+ICON 1 "clipuni.ico"
+
+MENU ID_MAIN
+BEGIN
+    SUBMENU "~File",                    IDM_FILE
+    BEGIN
+        MENUITEM "E~xit\tF3",           IDM_QUIT,       MIS_TEXT
+    END
+    SUBMENU "~Edit",                    IDM_EDIT
+    BEGIN
+        MENUITEM "Cu~t",                IDM_CUT,        MIS_TEXT
+        MENUITEM "~Copy",               IDM_COPY,       MIS_TEXT
+        MENUITEM "~Paste",              IDM_PASTE,      MIS_TEXT
+    END
+    SUBMENU "~Help",                    IDM_HELP
+    BEGIN
+        MENUITEM "Product information", IDM_ABOUT,      MIS_TEXT
+    END
+END
+
+ACCELTABLE ID_MAIN
+BEGIN
+    VK_F3,      IDM_QUIT,    VIRTUALKEY
+//    VK_INSERT,  IDM_PASTE,   VIRTUALKEY, SHIFT
+//    VK_INSERT,  IDM_PASTE,   CHAR,       SHIFT
+//    VK_INSERT,  IDM_COPY,    VIRTUALKEY, CONTROL
+//    VK_DELETE,  IDM_CUT,     VIRTUALKEY, SHIFT
+END
+
